@@ -12,6 +12,7 @@
           <exclude name="Squiz.Commenting.FileComment.MissingPackageTag" />
           <exclude name="Squiz.Commenting.FileComment.SpacingAfterOpen" />
           <exclude name="Squiz.Commenting.FileComment.Missing" />
+          <exclude name="Squiz.Commenting.ClassComment.Missing" />
 
           <!-- Shutup nerd -->
           <exclude name="WordPress.PHP.YodaConditions.NotYoda" />
