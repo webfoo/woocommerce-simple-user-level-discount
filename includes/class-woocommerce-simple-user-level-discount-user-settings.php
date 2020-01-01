@@ -3,10 +3,8 @@
 
 class Woocommerce_Simple_User_Level_Discount_User_Settings {
 
-    public function __construct() {
-
-        self::create_default_discounts();
-
+    public function __construct()
+    {
         add_action( 'show_user_profile', [$this, 'extra_user_profile_fields'] );
         add_action( 'edit_user_profile', [$this, 'extra_user_profile_fields'] );
 
@@ -21,22 +19,6 @@ class Woocommerce_Simple_User_Level_Discount_User_Settings {
             '<a href="' . esc_url( admin_url( 'admin.php?page=wc-settings&tab=user_level_discount' ) ) . '">Setup Discounts</a>'
         ), $links );
         return $links;
-    }
-
-
-    /**
-     * Create the default discounts.
-     * 
-     * @return void
-     */
-    public static function create_default_discounts()
-    {
-        if ( ! get_option( Woocommerce_Simple_User_Level_Discount_Field::get_field_name() )) {
-            update_option( 
-                Woocommerce_Simple_User_Level_Discount_Field::get_field_name(),
-                json_encode([])
-            );
-        }
     }
 
     /**
