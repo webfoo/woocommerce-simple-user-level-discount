@@ -26,8 +26,8 @@ class Woocommerce_Simple_User_Level_Discount_Settings_Tab {
     public function load_assets()
     {
         if ($_GET['tab'] == 'user_level_discount') {
-            wp_enqueue_script( 'user_level_discount_js', plugin_dir_url( __FILE__ ) . '../js/table.js', [], '1.0', true );
-            wp_enqueue_style( 'user_level_discount_css', plugin_dir_url( __FILE__ ) . '../css/style.css', [], '1.0' );
+            wp_enqueue_script( 'user_level_discount_js', plugin_dir_url( __FILE__ ) . '../js/table.js', [], WOOCOMMERCE_SIMPLE_USER_LEVEL_DISCOUNT_VERSION, true );
+            wp_enqueue_style( 'user_level_discount_css', plugin_dir_url( __FILE__ ) . '../css/style.css', [], WOOCOMMERCE_SIMPLE_USER_LEVEL_DISCOUNT_VERSION );
         }
     }
 
