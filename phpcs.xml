@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ruleset name="Custom">
+     <arg name="colors"/>
+     <arg value="s"/>
+     <rule ref="WordPress"/>
+     <rule ref="WordPress">
+          <!-- Allow args on opening line (and closing!) -->
+          <exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket" />
+          <exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine" />
+          
+          <!-- Little picky -->
+          <exclude name="Squiz.Commenting.FileComment.MissingPackageTag" />
+          <exclude name="Squiz.Commenting.FileComment.SpacingAfterOpen" />
+          <exclude name="Squiz.Commenting.FileComment.Missing" />
+
+          <!-- Shutup nerd -->
+          <exclude name="WordPress.PHP.YodaConditions.NotYoda" />
+
+          <!-- Allow a = b in conditions -->
+          <exclude name="WordPress.CodeAnalysis.AssignmentInCondition.Found" />
+          <exclude name="Squiz.PHP.DisallowMultipleAssignments.FoundInControlStructure" />
+
+          <!-- Spaces, tabs, IDK -->
+          <exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed" />
+
+          <!-- Indent yourself, please -->
+          <exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />
+          <exclude name="Generic.WhiteSpace.ScopeIndent.IncorrectExact" />
+          
+          <!-- It's 2019, allow [] -->
+          <exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
+     </rule>
+</ruleset>

@@ -1,0 +1,11 @@
+.user_level_table {
+    max-width: 500px;
+}
+
+.user_level_table input {
+    width: 100% !important;
+}
+
+.form-table {
+    /* display: none; */
+}
