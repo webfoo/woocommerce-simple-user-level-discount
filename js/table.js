@@ -50,6 +50,10 @@ jQuery(function($) {
         recalc_discounts();
     });
 
+    $(".button-primary.woocommerce-save-button").on("click", function() {
+        recalc_discounts();
+    });
+
     function recalc_discounts() {
         var key, val;
         var loopIndex = 1;
