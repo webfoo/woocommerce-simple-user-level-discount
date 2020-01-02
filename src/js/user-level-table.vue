@@ -1,32 +1,27 @@
 <template>
     
     <div>
-        <table class="form-table user_level_table wc_emails widefat">
+        <table class="form-table wc_emails widefat user-level-table">
             <thead>
                 <tr>
-                    <th>Level Name</th>
+                    <th>User Level Name</th>
                     <th>Discount Percent</th>
-                    <th width="20" style="width:20px">
-                        <a href="#add-row" @click=addRow()>&plus;</a>
+                    <th class="user-level-table__action-column">
+                        <a href="#add-row" v-on:click.prevent=addRow()>&plus;</a>
                     </th>
                 </tr>
             </thead>
             <tbody>
-
-                <tr 
-                    v-for="(discount, index) in discounts"
-                    :key=index>
+                <tr v-for="(discount, index) in discounts" v-bind:key=index>
                     <td><input type="text" v-model=discounts[index].name></td>
                     <td><input type="number" step=0.01 v-model=discounts[index].value></td>
                     <td>
-                        <a href="#remove-row" @click=removeRow(index)>&times;</a>
+                        <a href="#remove-row" v-on:click.prevent=removeRow(index)>&times;</a>
                     </td>
                 </tr>
-
             </tbody>
         </table>
-        <input type="hidden" :name=name :value=normalised>
-
+        <input type="hidden" v-bind:name=name v-bind:value=normalised>
     </div>
     
 </template>
