@@ -1,7 +1,11 @@
-.user_level_table {
+.user-level-table {
     max-width: 500px;
     
     input {
         width: 100% !important;
+    }
+
+    &__action-column {
+        width: 20px !important;
     }
 }
