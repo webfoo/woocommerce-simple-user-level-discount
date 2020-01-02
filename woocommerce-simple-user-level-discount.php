@@ -6,7 +6,7 @@
  * Author: Kevin Ruscoe <hello@kevinruscoe.me>
  */
 
-define( 'WOOCOMMERCE_SIMPLE_USER_LEVEL_DISCOUNT_VERSION', '1.0.0' );
+define( 'WOOCOMMERCE_SIMPLE_USER_LEVEL_DISCOUNT_VERSION', '1.0.1' );
 
 require plugin_dir_path( __FILE__ ) . 'includes/class-woocommerce-simple-user-level-discount-user-settings.php';
 require plugin_dir_path( __FILE__ ) . 'includes/class-woocommerce-simple-user-level-discount-field.php';
