@@ -11,7 +11,7 @@ class Woocommerce_Simple_User_Level_Discount_Settings_Tab {
         add_action(
             'woocommerce_settings_tabs_user_level_discount',
             function () {
-                woocommerce_admin_fields( $this->build_settings() );
+                include plugin_dir_path( __FILE__ ) . '../templates/user_level_discount_tab.php';
             }
         );
 
@@ -34,8 +34,8 @@ class Woocommerce_Simple_User_Level_Discount_Settings_Tab {
         }
 
         if ( $_GET['tab'] === 'user_level_discount' ) {  // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-            wp_enqueue_script( 'user_level_discount_js', plugin_dir_url( __FILE__ ) . '../js/table.js', [], WOOCOMMERCE_SIMPLE_USER_LEVEL_DISCOUNT_VERSION, true );
-            wp_enqueue_style( 'user_level_discount_css', plugin_dir_url( __FILE__ ) . '../css/style.css', [], WOOCOMMERCE_SIMPLE_USER_LEVEL_DISCOUNT_VERSION );
+            wp_enqueue_script( 'user_level_discount_js', plugin_dir_url( __FILE__ ) . '../js/app.js', [], WOOCOMMERCE_SIMPLE_USER_LEVEL_DISCOUNT_VERSION, true );
+            wp_enqueue_style( 'user_level_discount_css', plugin_dir_url( __FILE__ ) . '../css/app.css', [], WOOCOMMERCE_SIMPLE_USER_LEVEL_DISCOUNT_VERSION );
         }
     }
 
@@ -57,7 +57,6 @@ class Woocommerce_Simple_User_Level_Discount_Settings_Tab {
      * @return array
      */
     public function build_settings() {
-
         return [
             'section_title' => [
                 'name' => 'User Level Discount',
