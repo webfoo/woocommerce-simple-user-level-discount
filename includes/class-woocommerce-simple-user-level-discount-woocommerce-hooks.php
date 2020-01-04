@@ -8,9 +8,9 @@ class Woocommerce_Simple_User_Level_Discount_Woocommerce_Hooks {
      */
     public function __construct() {
         add_filter( 'woocommerce_get_price_html', [ $this, 'update_price_html' ], 50, 2 );
-        add_action( 'woocommerce_cart_calculate_fees', [ $this, 'add_discount_to_cart' ], 10 );
         add_filter( 'woocommerce_cart_item_price', [ $this, 'update_cart_item_price' ], 10, 2 );
         add_filter( 'woocommerce_cart_item_subtotal', [ $this, 'update_cart_item_subtotal' ], 10, 2 );
+        add_action( 'woocommerce_cart_calculate_fees', [ $this, 'add_discount_to_cart' ], 10 );
     }
 
     /**
