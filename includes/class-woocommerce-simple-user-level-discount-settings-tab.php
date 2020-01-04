@@ -11,7 +11,7 @@ class Woocommerce_Simple_User_Level_Discount_Settings_Tab {
         add_action(
             'woocommerce_settings_tabs_user_level_discount',
             function () {
-                include plugin_dir_path( __FILE__ ) . '../templates/user_level_discount_tab.php';
+                woocommerce_admin_fields( $this->build_settings() );
             }
         );
 
@@ -23,6 +23,24 @@ class Woocommerce_Simple_User_Level_Discount_Settings_Tab {
         );
 
         add_action( 'admin_enqueue_scripts', [ $this, 'load_assets' ] );
+
+        add_action( 'woocommerce_admin_field_user_level_table', [ $this, 'create_user_level_table'], 10 );
+    }
+
+    /**
+     * Prints out the html needed for the user_level_Table widget.
+     * 
+     * @param array $field The field data.
+     * @return string
+     */
+    public function create_user_level_table( array $field )
+    {
+        $value = $field['value'] ? $field['value'] : wp_json_encode( [] );
+
+        $html = '<p>Use the table below to add your discounts.</p>';
+        $html .= sprintf( "<div id='app'><user-level-table name='%s' :value='%s'/></div>", $field['id'], $value );
+
+        echo $html;
     }
 
     /**
@@ -62,10 +80,9 @@ class Woocommerce_Simple_User_Level_Discount_Settings_Tab {
                 'name' => 'User Level Discount',
                 'type' => 'title',
             ],
-            'title'         => [
-                'name' => 'Title',
-                'type' => 'text',
-                'id'   => Woocommerce_Simple_User_Level_Discount_Field::get_field_name(),
+            'discounts'     => [
+                'type' => 'user_level_table',
+                'id'   => Woocommerce_Simple_User_Level_Discount_Field::get_field_name()
             ],
             'section_end'   => [
                 'type' => 'sectionend',
