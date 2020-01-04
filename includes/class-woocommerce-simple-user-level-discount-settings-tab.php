@@ -27,10 +27,16 @@ class Woocommerce_Simple_User_Level_Discount_Settings_Tab {
         add_action( 'woocommerce_admin_field_user_level_table', [ $this, 'create_user_level_table'], 10 );
     }
 
+    /**
+     * Prints out the html needed for the user_level_Table widget.
+     * 
+     * @param array $field The field data.
+     * @return string
+     */
     public function create_user_level_table( array $field )
     {
         $value = $field['value'] ? $field['value'] : wp_json_encode( [] );
-        
+
         $html = '<p>Use the table below to add your discounts.</p>';
         $html .= sprintf( "<div id='app'><user-level-table name='%s' :value='%s'/></div>", $field['id'], $value );
 
