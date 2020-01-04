@@ -29,11 +29,10 @@ class Woocommerce_Simple_User_Level_Discount_Settings_Tab {
 
     public function create_user_level_table( array $field )
     {
-        $fieldname = Woocommerce_Simple_User_Level_Discount_Field::get_field_name();
-        $discounts = wp_json_encode( Woocommerce_Simple_User_Level_Discount_Field::get_discounts() );
-
+        $value = $field['value'] ? $field['value'] : wp_json_encode( [] );
+        
         $html = '<p>Use the table below to add your discounts.</p>';
-        $html .= sprintf( "<div id='app'><user-level-table name='%s' :value='%s'/></div>", $fieldname, $discounts );
+        $html .= sprintf( "<div id='app'><user-level-table name='%s' :value='%s'/></div>", $field['id'], $value );
 
         echo $html;
     }
@@ -77,6 +76,7 @@ class Woocommerce_Simple_User_Level_Discount_Settings_Tab {
             ],
             'discounts'     => [
                 'type' => 'user_level_table',
+                'id'   => Woocommerce_Simple_User_Level_Discount_Field::get_field_name()
             ],
             'section_end'   => [
                 'type' => 'sectionend',
