@@ -1,12 +1,16 @@
-# What's this?
+# WooCommerce Simple User Level Discount
+
+![alt text](logo@2x.png?raw=true "Woocommerce Simple User Level Discount")
+
+## What's this?
 
 This plugin adds a simple way to create groups of customers and provide a percentage based discount on those groups.
 
-## Install
+### Install
 
 Download (or pull) this into your WordPress plugins directory.
 
-## Screenies
+### Screenies
 
 ![Editing the user-groups](img/user_groups.jpg "Editing the user-groups")
 Editing the user-groups
